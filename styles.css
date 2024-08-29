@@ -1,0 +1,126 @@
+/* Gaya dasar untuk body dan html */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Menyembunyikan scrollbar selama animasi */
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-image: url('hanni.jpg'); /* Ganti dengan gambar background yang Anda inginkan */
+    background-size: cover;
+    background-attachment: fixed; /* Membuat efek parallax */
+    background-position: center; /* Menyesuaikan posisi background */
+}
+
+/* Gaya animasi gambar */
+#animation-circle {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background-image: url('logo3.png'); /* Ganti dengan gambar Anda */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: expand 1s forwards; /* Memperpendek durasi animasi */
+    z-index: 9999;
+}
+
+/* Keyframes untuk animasi melebar */
+@keyframes expand {
+    0% {
+        width: 100px;
+        height: 100px;
+        opacity: 1;
+    }
+    100% {
+        width: 2000px;
+        height: 2000px;
+        opacity: 0;
+    }
+}
+
+/* Gaya konten utama */
+#content {
+    display: none; /* Disembunyikan hingga animasi selesai */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    opacity: 0; /* Mulai dengan opacity 0 */
+    animation: fadeIn 1s forwards; /* Animasi muncul */
+}
+
+/* Keyframes untuk animasi fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -70%); /* Memulai dari atas */
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%); /* Posisi akhir */
+    }
+}
+
+/* Gaya login container */
+.login-container {
+    background: rgba(255, 255, 255, 0.8); /* Latar belakang transparan */
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    position: relative;
+}
+
+#logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+    transition: opacity 0.8s ease-out;
+}
+
+.login-container input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4169E1; /* Warna awal tombol */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease-out; /* Transisi warna */
+}
+
+.login-container button:hover {
+    background-color: #45a049; /* Warna saat hover */
+}
+
+/* Gaya login sukses */
+#login-success {
+  position: fixed;
+  top: -60px; /* Posisi awal di luar tampilan layar di atas */
+  left: 50%;
+  transform: translateX(-50%); /* Memastikan elemen di tengah-tengah secara horizontal */
+  background-color: green;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  transition: top 0.8s ease-out, opacity 0.4s ease-out;
+  opacity: 0;
+  z-index: 1000; /* Agar selalu berada di atas elemen lain */
+}
